@@ -1,0 +1,29 @@
+{
+  "apiVersion": 2,
+  "name": "custom/post-highlight",
+  "title": "Post Highlight",
+  "category": "widgets",
+  "icon": "star-filled",
+  "description": "Exibe um post grande e outros pequenos em destaque.",
+  "textdomain": "post-highlight",
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/editor.css",
+  "style": "file:./build/style.css",
+  "attributes": {
+    "quantidade": {
+      "type": "number",
+      "default": 4
+    },
+    "modo": {
+      "type": "string",
+      "default": "automatico"
+    },
+    "postsSelecionados": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "default": []
+    }
+  }
+}

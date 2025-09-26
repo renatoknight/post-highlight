@@ -1,0 +1,18 @@
+.phb-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+.phb-post--grande { grid-column: 1 / 2; }
+.phb-grid-pequenos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.phb-thumb-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.phb-conteudo { margin-top: 8px; }
