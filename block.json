@@ -7,8 +7,8 @@
   "description": "Exibe um post grande e outros pequenos em destaque.",
   "textdomain": "post-highlight",
   "editorScript": "file:./build/index.js",
-  "editorStyle": "file:./build/editor.css",
-  "style": "file:./build/style.css",
+  "editorStyle": "file:./build/style-index.css",
+  "style": "file:./build/style-index.css",
   "attributes": {
     "quantidade": {
       "type": "number",

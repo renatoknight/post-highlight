@@ -17,31 +17,30 @@ add_action( 'plugins_loaded', 'phb_load_textdomain' );
 
 // Registra o bloco e seus assets
 function phb_register_block() {
-    // CSS do bloco (editor e frontend)
-    wp_register_style(
-        'phb-block-style',
-        plugins_url( 'build/style-index.css', __FILE__ ),
-        [],
-        filemtime( plugin_dir_path( __FILE__ ) . 'build/style-index.css' )
-    );
-
-    // JS do bloco (editor)
-    wp_register_script(
-        'phb-block-script',
-        plugins_url( 'build/index.js', __FILE__ ),
-        [ 'wp-blocks', 'wp-element', 'wp-editor', 'wp-i18n', 'wp-components' ],
-        filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' ),
-        true
-    );
 
     register_block_type( __DIR__, [
-        'editor_script'   => 'phb-block-script',
         'render_callback' => 'phb_render_block',
-        'style'           => 'phb-block-style',
-        'editor_style'    => 'phb-block-style',
     ] );
 }
 add_action( 'init', 'phb_register_block' );
+
+
+// Adiciona campos extras à REST API para uso no editor Gutenberg
+add_action( 'rest_api_init', function () {
+    register_rest_field( 'post', 'featured_media_url', [
+        'get_callback' => function ( $post ) {
+            $thumb = get_the_post_thumbnail_url( $post['id'], 'large' );
+            return $thumb ?: 'https://via.placeholder.com/400x200';
+        },
+    ] );
+
+    register_rest_field( 'post', 'category_names', [
+        'get_callback' => function ( $post ) {
+            $cats = get_the_category( $post['id'] );
+            return wp_list_pluck( $cats, 'name' );
+        },
+    ] );
+} );
 
 // Renderização do bloco
 require_once __DIR__ . '/render.php';

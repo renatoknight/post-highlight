@@ -90,6 +90,7 @@
 .phb-overlay h2,
 .phb-overlay h3 {
   margin: 0 0 8px;
+  font-weight: 700;
 }
 
 /* RESUMO E DATA */
@@ -111,7 +112,9 @@
   color: #fff;
   text-decoration: none;
 }
-
+.inside-article .phb-overlay a {
+  color: #fff;
+}
 /* Ajustes específicos para posts pequenos */
 .phb-post--pequeno .phb-overlay {
   padding: 12px;
