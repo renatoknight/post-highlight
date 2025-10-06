@@ -136,11 +136,13 @@
   .phb-grid {
     grid-template-columns: 1fr;
   }
-
-  .phb-grid-pequenos {
-    flex-direction: row; /* ficam lado a lado */
+  .phb-overlay h2,
+  .phb-overlay h3 {
+    font-size: 1rem;
   }
-
+  .phb-overlay p.phb-resumo {
+    display: none;
+  }
   .phb-post--pequeno {
     flex: 1;
   }

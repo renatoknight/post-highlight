@@ -40,7 +40,7 @@ function phb_render_block( $attributes ) {
 
             // POST GRANDE
             if ( $count === 1 ) : ?>
-    <article class="phb-post phb-post--grande">
+    <article class="phb-post phb-post--grande <?php echo esc_html( $cat[0]->name ); ?>">
         <div class="phb-thumb-wrapper">
             <!-- Link da imagem -->
             <a href="<?php echo esc_url( $link ); ?>" class="phb-thumb-link">
@@ -51,7 +51,8 @@ function phb_render_block( $attributes ) {
             <!-- Overlay -->
             <div class="phb-overlay">
                 <?php if ( $cat ) : ?>
-                <a href="<?php echo esc_url( $cat_link ); ?>" class="phb-categoria">
+                <a href="<?php echo esc_url( $cat_link ); ?>"
+                    class="phb-categoria <?php echo esc_html( $cat[0]->name ); ?>">
                     <?php echo esc_html( $cat[0]->name ); ?>
                 </a>
                 <?php endif; ?>
@@ -78,7 +79,7 @@ function phb_render_block( $attributes ) {
         <?php
             // POSTS PEQUENOS (2 e 3)
             elseif ( $count <= 3 ) : ?>
-        <article class="phb-post phb-post--pequeno">
+        <article class="phb-post phb-post--pequeno <?php echo esc_html( $cat[0]->name ); ?>">
             <div class="phb-thumb-wrapper">
                 <!-- Link da imagem -->
                 <a href="<?php echo esc_url( $link ); ?>" class="phb-thumb-link">
@@ -89,7 +90,8 @@ function phb_render_block( $attributes ) {
                 <!-- Overlay -->
                 <div class="phb-overlay">
                     <?php if ( $cat ) : ?>
-                    <a href="<?php echo esc_url( $cat_link ); ?>" class="phb-categoria">
+                    <a href="<?php echo esc_url( $cat_link ); ?>"
+                        class="phb-categoria <?php echo esc_html( $cat[0]->name ); ?>">
                         <?php echo esc_html( $cat[0]->name ); ?>
                     </a>
                     <?php endif; ?>
